@@ -12,23 +12,18 @@ export default NextAuth({
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
       authorization: {
         params: {
-          scope: "read:user",
+          scope: "read:user, user:email",
         },
       },
     }),
   ],
   callbacks: {
     async signIn({ user, account, profile }) {
-      console.log(user);
-      try {
-        const { email } = user;
-        //método para inserção no db
-        await fauna.query(q.Create(q.Collection("users"), { data: { email } }));
-        return true;
-      } catch (err) {
-        console.log(err);
-        return false;
-      }
+      const { email } = user;
+      //método para inserção no db
+      await fauna.query(q.Create(q.Collection("users"), { data: { email } }));
+
+      return true;
     },
   },
 });

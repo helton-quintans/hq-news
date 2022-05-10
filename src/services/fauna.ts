@@ -1,3 +1,4 @@
+//Acesso ao fauna
 import { Client } from "faunadb";
 
 export const fauna = new Client({
