@@ -20,10 +20,14 @@ export default NextAuth({
   callbacks: {
     async signIn({ user, account, profile }) {
       const { email } = user;
-      //método para inserção no db
-      await fauna.query(q.Create(q.Collection("users"), { data: { email } }));
 
-      return true;
+      try {
+        await fauna.query(q.Create(q.Collection("users"), { data: { email } }));
+
+        return true;
+      } catch {
+        return false;
+      }
     },
   },
 });
