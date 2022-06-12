@@ -33,7 +33,6 @@
   <a href="#rocket-tecnologias">Tecnologias</a> &#xa0; | &#xa0;
   <a href="#white_check_mark-requerimentos">Requerimentos</a> &#xa0; | &#xa0;
   <a href="#checkered_flag-começando">Começando</a> &#xa0; &#xa0; | &#xa0;
-  <a href="#framed_picture-imagens">Imagens</a> &#xa0; &#xa0;
 </p>
 
 <br>
@@ -83,12 +82,5 @@ $ yarn dev
 # The server will initialize in the <http://localhost:3000>
 ```
 ## :framed_picture: Imagens ##
-
-<h1 align="center">
-    <img alt = "Web app" src = "./.github/image-01.png" width = "500px" />
-    <img alt = "Web app" src = "./.github/image-02.png" width = "500px" />
-    <img alt = "Web app" src = "./.github/image-03.png" width = "500px" />
-    <img alt = "Web app" src = "./.github/image-04.png" width = "500px" />
-</h1>
 
 
