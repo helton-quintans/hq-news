@@ -1,4 +1,4 @@
-import { GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import Head from "next/head";
 import SubscribeButton from "../components/SubscribeButton";
 import { stripe } from "../services/stripe";
@@ -36,16 +36,18 @@ export default function Home({ product }: Homeprops) {
   );
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
+  //buscando o preço do produto da api do stripe
   const price = await stripe.prices.retrieve("price_1Ks8HuEjUKhia15EuMwe2eUT", {
-    expand: ["product"],
+    //expand trás todas as informações do produto
+    expand: ['product']
   });
-
+ 
   const product = {
     priceId: price.id,
-    amount: new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
+    amount: new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD'
     }).format(price.unit_amount / 100),
   };
   return {
